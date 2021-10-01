@@ -7,10 +7,24 @@ const Todo = ({ text, todo, todoList, setTodoList }) => {
     console.log(todoList);
     setTodoList(todoList.filter((Element) => Element.id !== todo.id));
   };
+
+  const confirmHamdler = () => {
+    setTodoList(
+      todoList.map((element) => {
+        if (element.id === todo.id) {
+          return {
+            ...element,
+            completed: !element.completed,
+          };
+        }
+        return element;
+      })
+    );
+  };
   return (
     <div className="todo">
       <li className="todo-item">{text}</li>
-      <button>
+      <button onClick={confirmHamdler}>
         <i className="fa fa-check"></i>
       </button>
       <button onClick={deleteHandler}>
