@@ -3,8 +3,6 @@ import TodoList from "./TodoList";
 
 const Todo = ({ text, todo, todoList, setTodoList }) => {
   const deleteHandler = (e) => {
-    console.log(todo);
-    console.log(todoList);
     setTodoList(todoList.filter((Element) => Element.id !== todo.id));
   };
 
@@ -23,7 +21,9 @@ const Todo = ({ text, todo, todoList, setTodoList }) => {
   };
   return (
     <div className="todo">
-      <li className="todo-item">{text}</li>
+      <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
+        {text}
+      </li>
       <button onClick={confirmHamdler}>
         <i className="fa fa-check"></i>
       </button>
