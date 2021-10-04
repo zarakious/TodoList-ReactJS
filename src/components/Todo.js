@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import TodoList from "./TodoList";
+import React from "react";
 
 const Todo = ({ text, todo, todoList, setTodoList }) => {
   const deleteHandler = (e) => {

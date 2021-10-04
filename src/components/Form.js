@@ -1,8 +1,14 @@
 import React from "react";
-import Select from "../Select";
-import TodoList from "./TodoList";
+import Select from "./Select";
 
-const Form = ({ setInputText, inputText, todoList, setTodoList }) => {
+const Form = ({
+  setInputText,
+  inputText,
+  todoList,
+  setTodoList,
+  appState,
+  setAppState,
+}) => {
   // Here i can write javascript code
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
@@ -27,7 +33,12 @@ const Form = ({ setInputText, inputText, todoList, setTodoList }) => {
       <button onClick={submitTodoHandler} className="todo-button" type="submit">
         <i className="fa fa-plus-square"></i>
       </button>
-      <Select todos={todoList} setTodoList={setTodoList} />
+      <Select
+        todos={todoList}
+        setTodoList={setTodoList}
+        appState={appState}
+        setAppState={setAppState}
+      />
     </form>
   );
 };
